@@ -1,4 +1,7 @@
 # CSInn
+
+![Alt text](https://lh5.googleusercontent.com/3FONmR_DZpa8CqD-yTukgKHkCP1MMqs_M19TDrt15Ua_DmhH4VkDP4hK8RoA8g_9vO2T8C2tZPUMLlr9tmlEzTeNsydnVqW6gb-aI4yiFAo7Ewhet63cUdOD3Mut3anR8lhRCvsv)
+
 This repository is part of the C# Inn Community Website where we as a community assist each other along with other programmers.
 C# will be the main language used to make the website as it's the main language present in the community.
 Blazor will be used as it will allow us to use more of C# than what would normally be used within other Web UI frameworks.
