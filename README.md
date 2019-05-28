@@ -9,9 +9,10 @@ Blazor will be used as it will allow us to use more of C# than what would normal
 For a much more detailed explanation, please refer to the Google Doc: 
 https://docs.google.com/document/d/1USzxRzPjm1Gs2aI3mVR4uFf0GjdWn55gD-u3ezwEjdI/edit#heading=h.bko0h4vmadol
 
-To take part in the project, please join the CSInn organisation and refer to the repository's issue board as that will be our backlog.
+To take part in the project, please join the CSInn organisation and refer to the repository's issue board as that will be our method of project management.
 
 For questions regarding project information, it'd be highly recommended to contact Kaisnel or any high ranking project member within the C# Inn discord.
+https://discordapp.com/invite/ZU6dqXg
 
 This readme will be updated as the user interface is developed or other diagrams showcasing the project are developed in order to give a
 better visual representation on what the project looks like.
