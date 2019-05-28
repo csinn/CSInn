@@ -1,0 +1,3 @@
+[submodule "src/submodules/Discord.OAuth2"]
+	path = src/submodules/Discord.OAuth2
+	url = https://github.com/RogueException/Discord.OAuth2
