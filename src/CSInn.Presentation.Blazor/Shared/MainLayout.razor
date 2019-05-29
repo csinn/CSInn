@@ -1,4 +1,6 @@
 ﻿@inherits LayoutComponentBase
+@using System.Security.Claims
+@inject ClaimsPrincipal currentUser
 
 <div class="sidebar">
     <NavMenu />
@@ -11,5 +13,22 @@
 
     <div class="content px-4">
         @Body
+
+        <br />
+        <br />
+
+        @if (!currentUser.Identity.IsAuthenticated)
+        {
+            // Just to demo that it's working.
+            <p>
+                You are not logged in.
+            </p>
+        }
+        else
+        {
+            <p>
+                You are logged in as @currentUser.Identity.Name
+            </p>
+        }
     </div>
 </div>
