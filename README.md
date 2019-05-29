@@ -17,7 +17,7 @@ And much more!
 - Git will act as our backlog
 - GitHub issues board will act as project management where features can be implemented
 - Azure pipelines will be used as our continous integration as it's made mainly for .NET
-- Jenkins will be our continous delivery 
+- Jenkins will be our continous delivery
 
 If you wish to discuss these development tools, feel free to ask Kaisnel or any high ranking project member about the use or need for these tools.
 
@@ -29,3 +29,5 @@ For questions regarding project information, it'd be highly recommended to conta
 
 This readme will be updated as the user interface is developed or other diagrams showcasing the project are developed in order to give a
 better visual representation on what the project looks like in its current stage.
+
+This project is licensed under the MIT license. See the [license file](LICENSE) for more information.
