@@ -1,6 +1,6 @@
 # CSInn
 
-![Alt text](https://lh5.googleusercontent.com/3FONmR_DZpa8CqD-yTukgKHkCP1MMqs_M19TDrt15Ua_DmhH4VkDP4hK8RoA8g_9vO2T8C2tZPUMLlr9tmlEzTeNsydnVqW6gb-aI4yiFAo7Ewhet63cUdOD3Mut3anR8lhRCvsv)
+![CSInn logo](https://user-images.githubusercontent.com/40486932/58613730-2e613e00-82bf-11e9-95aa-f84b339ccbcd.png)
 
 The C# community website is built to introduce people to the C# Inn as it's a community specialising in C# where you can learn more about
 C#, object orienated programming and more. We also provide certain features such as:
