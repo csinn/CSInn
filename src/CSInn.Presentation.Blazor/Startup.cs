@@ -7,12 +7,7 @@ using Microsoft.Extensions.Hosting;
 using CSInn.Presentation.Blazor.Data;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Extensions.Configuration;
-using System.Security.Claims;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.OAuth;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text.Json;
+using CSInn.Application.Discord.Authentication;
 
 namespace CSInn.Presentation.Blazor
 {
@@ -37,45 +32,11 @@ namespace CSInn.Presentation.Blazor
 
             services.AddAuthentication(options =>
             {
-                options.DefaultChallengeScheme = "Discord";
+                options.DefaultChallengeScheme = DiscordAuthenticationDefaults.AuthenticationScheme;
                 options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                 options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
             })
-            .AddOAuth("Discord", options =>
-            {
-                options.ClientId = this._config["discord:client_id"];
-                options.ClientSecret = this._config["discord:app_secret"];
-                options.CallbackPath = new PathString("/signin-discord");
-
-                options.AuthorizationEndpoint = "https://discordapp.com/api/oauth2/authorize";
-                options.TokenEndpoint = "https://discordapp.com/api/oauth2/token";
-                options.UserInformationEndpoint = "https://discordapp.com/api/users/@me";
-
-                options.Scope.Add("identify");
-
-                options.ClaimActions.MapJsonKey(ClaimTypes.NameIdentifier, "id", ClaimValueTypes.UInteger64);
-                options.ClaimActions.MapJsonKey(ClaimTypes.Name, "username", ClaimValueTypes.String);
-                options.ClaimActions.MapJsonKey(ClaimTypes.Email, "email", ClaimValueTypes.Email);
-                options.ClaimActions.MapJsonKey("urn:discord:discriminator", "discriminator", ClaimValueTypes.UInteger32);
-                options.ClaimActions.MapJsonKey("urn:discord:avatar", "avatar", ClaimValueTypes.String);
-                options.ClaimActions.MapJsonKey("urn:discord:verified", "verified", ClaimValueTypes.Boolean);
-
-                options.Events = new OAuthEvents()
-                {
-                    OnCreatingTicket = async ctx =>
-                    {
-                        var request = new HttpRequestMessage(HttpMethod.Get, ctx.Options.UserInformationEndpoint);
-                        request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", ctx.AccessToken);
-
-                        var response = await ctx.Backchannel.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, ctx.HttpContext.RequestAborted);
-                        response.EnsureSuccessStatusCode();
-
-                        var document = await JsonDocument.ParseAsync(await response.Content.ReadAsStreamAsync());
-                        ctx.RunClaimActions(document.RootElement);
-                    }
-                };
-            })
+            .AddDiscord(this._config)
             .AddCookie(options => 
             {
                 options.Cookie.HttpOnly = true;

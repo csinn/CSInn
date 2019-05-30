@@ -13,7 +13,6 @@ namespace CSInn.Presentation.Blazor.Pages
             return Challenge(new AuthenticationProperties { RedirectUri = redirectUrl });
         }
 
-        // TODO: This controller isn't mapped for some reason.
         [Route("logout"), HttpGet]
         public async Task<IActionResult> LogoutAsync()
         {
@@ -22,7 +21,7 @@ namespace CSInn.Presentation.Blazor.Pages
                 await HttpContext.SignOutAsync();
             }
 
-            return RedirectToAction("/");
+            return RedirectToPage("/Index");
         }
     }
 }
