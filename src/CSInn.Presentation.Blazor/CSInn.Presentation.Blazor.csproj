@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\submodules\Discord.OAuth2\src\Discord.OAuth2\Discord.OAuth2.csproj" />
+    <ProjectReference Include="..\CSInn.Authentication\CSInn.Application.Discord.Authentication.csproj" />
   </ItemGroup>
 
 </Project>

@@ -32,12 +32,10 @@ namespace CSInn.Presentation.Blazor
 
             services.AddAuthentication(options =>
             {
+                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = DiscordAuthenticationDefaults.AuthenticationScheme;
-                options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
             })
-            .AddDiscord(this._config)
-            .AddCookie(options => 
+            .AddCookie(options =>
             {
                 options.Cookie.HttpOnly = true;
                 options.Cookie.SameSite = SameSiteMode.Lax; // Needed for OAuth.
@@ -49,7 +47,8 @@ namespace CSInn.Presentation.Blazor
 
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(10);
                 options.SlidingExpiration = true;
-            });
+            })
+            .AddDiscord(this._config);
 
             // TODO: In Preview 6 we will get IAuthenticationState to replace this.
             // Validate if the user is authenticated with @inject ClaimsPrincipal for the time being.

@@ -20,9 +20,9 @@ namespace Microsoft.Extensions.DependencyInjection
                 options.ClientSecret = config["discord:app_secret"];
                 options.CallbackPath = new PathString("/signin-discord");
 
-                options.AuthorizationEndpoint = "https://discordapp.com/api/oauth2/authorize";
-                options.TokenEndpoint = "https://discordapp.com/api/oauth2/token";
-                options.UserInformationEndpoint = "https://discordapp.com/api/users/@me";
+                options.AuthorizationEndpoint = DiscordAuthenticationDefaults.AuthorizationEndpoint;
+                options.TokenEndpoint = DiscordAuthenticationDefaults.TokenEndpoint;
+                options.UserInformationEndpoint = DiscordAuthenticationDefaults.UserInformationEndpoint;
 
                 options.Scope.Add("identify");
 

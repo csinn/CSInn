@@ -29,10 +29,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSInn.Presentation.Blazor.T
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSInn.Presentation.Blazor", "src\CSInn.Presentation.Blazor\CSInn.Presentation.Blazor.csproj", "{5F1AE987-D964-4DBB-AC3F-4A16526C9DB0}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "submodules", "submodules", "{10E33936-5BA7-4B13-ABA5-37BE0AE82031}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Discord.OAuth2", "src\submodules\Discord.OAuth2\src\Discord.OAuth2\Discord.OAuth2.csproj", "{58CC5805-E579-40CC-B426-BA853B8CED20}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,10 +79,6 @@ Global
 		{5F1AE987-D964-4DBB-AC3F-4A16526C9DB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F1AE987-D964-4DBB-AC3F-4A16526C9DB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F1AE987-D964-4DBB-AC3F-4A16526C9DB0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{58CC5805-E579-40CC-B426-BA853B8CED20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{58CC5805-E579-40CC-B426-BA853B8CED20}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{58CC5805-E579-40CC-B426-BA853B8CED20}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{58CC5805-E579-40CC-B426-BA853B8CED20}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -103,8 +95,6 @@ Global
 		{1431F0EB-553C-4FE8-96B9-48E28DF99809} = {186B0C3C-02E4-416C-9CD1-067E7662A53E}
 		{1E81B823-244F-4E05-909F-EB664C20AF09} = {399E33DB-3837-48F0-BFFA-B756D995BD2D}
 		{5F1AE987-D964-4DBB-AC3F-4A16526C9DB0} = {186B0C3C-02E4-416C-9CD1-067E7662A53E}
-		{10E33936-5BA7-4B13-ABA5-37BE0AE82031} = {186B0C3C-02E4-416C-9CD1-067E7662A53E}
-		{58CC5805-E579-40CC-B426-BA853B8CED20} = {10E33936-5BA7-4B13-ABA5-37BE0AE82031}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6BBE2057-901B-474F-9140-0D045DF18046}
