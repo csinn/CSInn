@@ -17,5 +17,9 @@ To take part in the project, please join the CSInn organisation and refer to the
 Blazor allows us to build interactive web UIs using C# instead of JavaScript. 
 To get started with Blazor, please refer to this [microsoft document](https://docs.microsoft.com/en-gb/aspnet/core/blazor/get-started?view=aspnetcore-3.0&tabs=visual-studio) using the guidance to install for the choice of your tooling.
 
+# Branching Model
+For our branching model, we're using GitFlow as we're attempting to work outside the master branch as that'll be our completely stable build for use. For example, for features we use "feature/feature we work on" or for fixes we use "fix/readme".
+
+
 
 This project is licensed under the MIT license. See the [license file](LICENSE) for more information.
