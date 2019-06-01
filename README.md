@@ -8,7 +8,14 @@ C#, object orientated programming and more. For more details on features, refer 
 
 To take part in the project, please join the CSInn organisation and refer to the repository's issue board as that will be our method of project management. For questions regarding project information, it'd be highly recommended to contact Kaisnel or any high ranking project member within the C# Inn [discord](https://discordapp.com/invite/ZU6dqXg).
 # Installation
-We will be using [Blazor](https://dotnet.microsoft.com/apps/aspnet/web-apps/client) which **requires** Visual Studio 2019 preview.
+
+## Requirements
+- [Blazor](https://dotnet.microsoft.com/apps/aspnet/web-apps/client)
+- [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) (or 2019 with preview tick on)
+- [.NET core 3.0 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.0)
+
+Blazor allows us to build interactive web UIs using C# instead of JavaScript. 
+To get started with Blazor, please refer to this [microsoft document](https://docs.microsoft.com/en-gb/aspnet/core/blazor/get-started?view=aspnetcore-3.0&tabs=visual-studio) using the guidance to install for the choice of your tooling.
 
 
 This project is licensed under the MIT license. See the [license file](LICENSE) for more information.
