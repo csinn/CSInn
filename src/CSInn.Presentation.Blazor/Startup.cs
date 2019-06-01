@@ -34,7 +34,10 @@ namespace CSInn.Presentation.Blazor
             {
                 options.Cookie.HttpOnly = true;
                 options.Cookie.SameSite = SameSiteMode.Lax; // Needed for OAuth.
-                //options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+
+                // TODO: Local dev needs to run over HTTPS. Commenting out because project isn't doing so at the moment.
+                // options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+
 
                 options.LoginPath = "/auth/login";
                 options.LogoutPath = "/auth/logout";
