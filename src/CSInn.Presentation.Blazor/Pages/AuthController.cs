@@ -21,7 +21,7 @@ namespace CSInn.Presentation.Blazor.Pages
                 await HttpContext.SignOutAsync();
             }
 
-            return RedirectToPage("/Index");
+            return RedirectToPage("/_Host");
         }
     }
 }

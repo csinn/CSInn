@@ -22,13 +22,8 @@ namespace CSInn.Presentation.Blazor
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages()
-                .AddRazorPagesOptions(options => 
-                {
-                    options.Conventions.AuthorizePage("/counter");
-                });
+            services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<WeatherForecastService>();
 
             services.AddAuthentication(options =>
             {
@@ -39,7 +34,7 @@ namespace CSInn.Presentation.Blazor
             {
                 options.Cookie.HttpOnly = true;
                 options.Cookie.SameSite = SameSiteMode.Lax; // Needed for OAuth.
-                options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+                //options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
 
                 options.LoginPath = "/auth/login";
                 options.LogoutPath = "/auth/logout";
