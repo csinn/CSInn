@@ -1,0 +1,17 @@
+﻿@using System.Security.Claims
+@inject ClaimsPrincipal user
+
+    <div>
+
+        @if (!user.Identity.IsAuthenticated)
+        {
+            <button class="btn btn-primary" onclick="window.location.href='/auth/login'">Log in with Discord</button>
+
+        }
+        else
+        {
+            <p>Logged in as: @user.Identity.Name <br /> Role: -</p>
+            <button class="btn btn-primary" onclick="window.location.href='/auth/logout'">Log out from Discord</button>
+        }
+
+    </div>

@@ -11,7 +11,7 @@ app {
 }
 
 .top-row {
-    height: 3.5rem;
+    height: auto;
     display: flex;
     align-items: center;
 }

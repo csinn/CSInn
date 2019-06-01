@@ -7,28 +7,12 @@
 </div>
 
 <div class="main">
-    <div class="top-row px-4">
-        <a href="https://docs.microsoft.com/en-us/aspnet/" target="_blank" class="ml-md-auto">About</a>
+
+    <div class="top-row">
+        <CSInn.Presentation.Blazor.Pages.Login />
     </div>
 
     <div class="content px-4">
         @Body
-
-        <br />
-        <br />
-
-        @if (!currentUser.Identity.IsAuthenticated)
-        {
-            // Just to demo that it's working.
-            <p>
-                You are not logged in.
-            </p>
-        }
-        else
-        {
-            <p>
-                You are logged in as @currentUser.Identity.Name
-            </p>
-        }
     </div>
 </div>
