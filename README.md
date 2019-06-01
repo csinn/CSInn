@@ -20,6 +20,19 @@ To get started with Blazor, please refer to this [microsoft document](https://do
 # Branching Model
 For our branching model, we're using GitFlow as we're attempting to work outside the master branch as that'll be our completely stable build for use. For example, for features we use "feature/feature we work on" or for fixes we use "fix/readme".
 
+# PR Template
+We follow a WWC structure to our pull requests to remain consistent and understandable.
 
+### What 
+- What changes have you made?
+- Be specific.
+### Why
+- Why have you made these changes?
+- Are these changes a bug fix or adding in features?
+- Be specific.
+### Change
+- Do you still need to make changes (is it still in progress)?
+- Can any improvements be made?
+- Be specific
 
 This project is licensed under the MIT license. See the [license file](LICENSE) for more information.
