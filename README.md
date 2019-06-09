@@ -19,7 +19,7 @@ And much more!
 - Azure pipelines will be used as our continous integration as it's made mainly for .NET
 - Jenkins will be our continous delivery
 
-If you wish to discuss these development tools, feel free to ask Kaisnel or any high ranking project member about the use or need for these tools.
+# [How to get started?](https://github.com/csinn/CSInn/wiki/How-to-get-started-working-on-the-project%3F)
 
 Our Google doc will act as our [specification](https://docs.google.com/document/d/1USzxRzPjm1Gs2aI3mVR4uFf0GjdWn55gD-u3ezwEjdI/edit#heading=h.bko0h4vmadol) for the project:
 
