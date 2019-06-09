@@ -18,4 +18,5 @@ For full requirements refer to [specification](https://docs.google.com/document/
 
 For questions regarding project information, it'd be highly recommended to contact Kaisnel or any high ranking project member within the C# Inn [discord](https://discordapp.com/invite/ZU6dqXg).
 
+---
 This project is licensed under the MIT license. See the [license file](LICENSE) for more information.
