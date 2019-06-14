@@ -1,0 +1,25 @@
+﻿@page  "/PostEdit"
+@using Microsoft.AspNetCore.Components
+@inject IUriHelper PageChange
+<title>Code Review</title>
+<head>
+    Post your Code Here For it to be reviewed!
+</head>
+
+// The id = PostContents is an experiment
+<p>
+    <label>Put your Code here</label>
+<textarea id=@PostContents rows="15" cols="90"> 
+ </textarea>
+</p>
+<div class=""
+<button class=" btn btn-primary" onclick="@Submit">Post</button>
+
+ @functions {
+     String PostContents;
+
+     private void Submit()
+     {
+       PageChange.NavigateTo("CodePost");
+     }
+}

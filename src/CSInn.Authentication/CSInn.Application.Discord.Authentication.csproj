@@ -4,4 +4,13 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="Code Review\CodeReviewSystem.csproj" />
+    <None Include="Code Review\CodeReviewSystem.csproj.user" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Code Review\bin\Debug\netstandard2.0\" />
+  </ItemGroup>
+
 </Project>

@@ -1,0 +1,28 @@
+﻿@page  "/CodeReview"
+
+<title>Code Review</title>
+<head>Post your Code Here For review!</head>
+
+<p>
+<label>Put Code here</label>
+<textarea> id = "Code for Review"
+ rows = "5"
+ cols = "80"> @Code</textarea>
+</p>
+
+<button class=" btn btn-primary" onclick="@Submit">Post</button>
+ 
+<textarea>@FinalPost
+</textarea>
+
+@functions {
+
+    String Code;
+    String FinalPost;
+    String Reply;
+
+    void Submit()
+    {
+        FinalPost = Code;
+    }
+}

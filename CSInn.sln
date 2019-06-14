@@ -27,8 +27,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSInn.Presentation.Blazor.T
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSInn.Presentation.Blazor", "src\CSInn.Presentation.Blazor\CSInn.Presentation.Blazor.csproj", "{5F1AE987-D964-4DBB-AC3F-4A16526C9DB0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeReviewSystem", "src\Code Review\CodeReviewSystem.csproj", "{75A91C33-FFF5-4080-A027-C8FCA3C6B040}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,10 +73,6 @@ Global
 		{5F1AE987-D964-4DBB-AC3F-4A16526C9DB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F1AE987-D964-4DBB-AC3F-4A16526C9DB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F1AE987-D964-4DBB-AC3F-4A16526C9DB0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{75A91C33-FFF5-4080-A027-C8FCA3C6B040}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{75A91C33-FFF5-4080-A027-C8FCA3C6B040}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{75A91C33-FFF5-4080-A027-C8FCA3C6B040}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{75A91C33-FFF5-4080-A027-C8FCA3C6B040}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -94,7 +88,6 @@ Global
 		{1431F0EB-553C-4FE8-96B9-48E28DF99809} = {186B0C3C-02E4-416C-9CD1-067E7662A53E}
 		{1E81B823-244F-4E05-909F-EB664C20AF09} = {399E33DB-3837-48F0-BFFA-B756D995BD2D}
 		{5F1AE987-D964-4DBB-AC3F-4A16526C9DB0} = {186B0C3C-02E4-416C-9CD1-067E7662A53E}
-		{75A91C33-FFF5-4080-A027-C8FCA3C6B040} = {186B0C3C-02E4-416C-9CD1-067E7662A53E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6BBE2057-901B-474F-9140-0D045DF18046}
