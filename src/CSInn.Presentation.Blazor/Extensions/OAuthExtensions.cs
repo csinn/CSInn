@@ -33,10 +33,12 @@ namespace Microsoft.Extensions.DependencyInjection
                 options.ClaimActions.MapJsonKey("urn:discord:avatar", "avatar", ClaimValueTypes.String);
                 options.ClaimActions.MapJsonKey("urn:discord:verified", "verified", ClaimValueTypes.Boolean);
 
+
                 options.Events = new OAuthEvents()
                 {
                     OnCreatingTicket = async ctx =>
                     {
+                        
                         var request = new HttpRequestMessage(HttpMethod.Get, ctx.Options.UserInformationEndpoint);
                         request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", ctx.AccessToken);
@@ -45,6 +47,11 @@ namespace Microsoft.Extensions.DependencyInjection
                         response.EnsureSuccessStatusCode();
 
                         var document = await JsonDocument.ParseAsync(await response.Content.ReadAsStreamAsync());
+
+                        //Role management proposal:
+                        //Parse the id out of the user info document (document above) and use the id to lookup the associated role in our db.
+                        //Add a new claim (options.ClaimActions.add(new Claim(ClaimsType.Role, DbResult))))
+                        
                         ctx.RunClaimActions(document.RootElement);
                     }
                 };

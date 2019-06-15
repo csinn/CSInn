@@ -4,10 +4,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using CSInn.Presentation.Blazor.Data;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Extensions.Configuration;
 using CSInn.Application.Discord.Authentication;
+using Microsoft.AspNetCore.Components;
+using CSInn.Presentation.Blazor.Data;
 
 namespace CSInn.Presentation.Blazor
 {
@@ -38,7 +39,6 @@ namespace CSInn.Presentation.Blazor
                 // TODO: Local dev needs to run over HTTPS. Commenting out because project isn't doing so at the moment.
                 // options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
 
-
                 options.LoginPath = "/auth/login";
                 options.LogoutPath = "/auth/logout";
                 options.ReturnUrlParameter = "/user/profile";
@@ -47,11 +47,9 @@ namespace CSInn.Presentation.Blazor
                 options.SlidingExpiration = true;
             })
             .AddDiscord(this._config);
-
-            // TODO: In Preview 6 we will get IAuthenticationState to replace this.
-            // Validate if the user is authenticated with @inject ClaimsPrincipal for the time being.
-            services.AddHttpContextAccessor();
-            services.AddScoped(ioc => ioc.GetRequiredService<IHttpContextAccessor>().HttpContext.User);
+            
+            //Uncomment to use a fake idenitity that is authorized from the start.
+            //services.AddScoped<AuthenticationStateProvider, FakeAuthenticationStateProvider>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

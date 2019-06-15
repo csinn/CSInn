@@ -1,17 +1,16 @@
-﻿@using System.Security.Claims
-@inject ClaimsPrincipal user
+﻿@using System.Security.Claims;
 
-    <div>
-
-        @if (!user.Identity.IsAuthenticated)
-        {
-            <button class="btn btn-primary" onclick="window.location.href='/auth/login'">Log in with Discord</button>
-
-        }
-        else
-        {
-            <p>Logged in as: @user.Identity.Name <br /> Role: -</p>
+<div>
+    <AuthorizeView>
+        <Authorized>
+            <p>
+                Logged in as: @context.User.Identity.Name   <br />
+                Role: @context.User.FindFirstValue(ClaimTypes.Role)
+            </p>
             <button class="btn btn-primary" onclick="window.location.href='/auth/logout'">Log out from Discord</button>
-        }
-
-    </div>
+        </Authorized>
+        <NotAuthorized>
+            <button class="btn btn-primary" onclick="window.location.href='/auth/login'">Log in with Discord</button>
+        </NotAuthorized>
+    </AuthorizeView>
+</div>
