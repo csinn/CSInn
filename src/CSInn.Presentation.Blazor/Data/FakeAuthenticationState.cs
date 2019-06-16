@@ -13,7 +13,6 @@ namespace CSInn.Presentation.Blazor.Data
             new Claim(ClaimTypes.Name, "Some fake user"),
             new Claim(ClaimTypes.Role, "Some fake role")
             },
-            
             "Fake authentication type");
             
             var user = new ClaimsPrincipal(identity);

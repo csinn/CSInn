@@ -1,12 +1,14 @@
 ﻿using CSInn.Application.Discord.Authentication;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.OAuth;
+using Microsoft.AspNetCore.Authentication.OAuth.Claims;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Security.Claims;
 using System.Text.Json;
+using System.Threading.Tasks;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -22,42 +24,76 @@ namespace Microsoft.Extensions.DependencyInjection
 
                 options.AuthorizationEndpoint = DiscordAuthenticationDefaults.AuthorizationEndpoint;
                 options.TokenEndpoint = DiscordAuthenticationDefaults.TokenEndpoint;
-                options.UserInformationEndpoint = DiscordAuthenticationDefaults.UserInformationEndpoint;
 
                 options.Scope.Add("identify");
-
-                options.ClaimActions.MapJsonKey(ClaimTypes.NameIdentifier, "id", ClaimValueTypes.UInteger64);
-                options.ClaimActions.MapJsonKey(ClaimTypes.Name, "username", ClaimValueTypes.String);
-                options.ClaimActions.MapJsonKey(ClaimTypes.Email, "email", ClaimValueTypes.Email);
-                options.ClaimActions.MapJsonKey("urn:discord:discriminator", "discriminator", ClaimValueTypes.UInteger32);
-                options.ClaimActions.MapJsonKey("urn:discord:avatar", "avatar", ClaimValueTypes.String);
-                options.ClaimActions.MapJsonKey("urn:discord:verified", "verified", ClaimValueTypes.Boolean);
-
+                options.Scope.Add("guilds");
 
                 options.Events = new OAuthEvents()
                 {
                     OnCreatingTicket = async ctx =>
                     {
-                        
-                        var request = new HttpRequestMessage(HttpMethod.Get, ctx.Options.UserInformationEndpoint);
-                        request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", ctx.AccessToken);
 
-                        var response = await ctx.Backchannel.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, ctx.HttpContext.RequestAborted);
-                        response.EnsureSuccessStatusCode();
+                        //Instead of running claimactions and letting it build the claims automatically,
+                        //we manually requests and parses the information we want and adds the claims manually.
+                        //reason is that we need to inject custom logic for setting roles.
 
-                        var document = await JsonDocument.ParseAsync(await response.Content.ReadAsStreamAsync());
+                        var userinfodocument = await GetInfoFromEndPoint(ctx, DiscordAuthenticationDefaults.UserInformationEndpoint);
+                        var userguildsinfodocument = await GetInfoFromEndPoint(ctx, DiscordAuthenticationDefaults.UserGuildsInformationEndPoint);
 
-                        //Role management proposal:
-                        //Parse the id out of the user info document (document above) and use the id to lookup the associated role in our db.
-                        //Add a new claim (options.ClaimActions.add(new Claim(ClaimsType.Role, DbResult))))
-                        
-                        ctx.RunClaimActions(document.RootElement);
+                        var avatarhex = GetValueOfProperty(userinfodocument, "avatar");
+                        var username = GetValueOfProperty(userinfodocument, "username");
+
+                        //Temporary simplistic role assignment based on membership.
+                        //Will later probably be a lookup in db to ascertain role
+                        var role = IsCsInnMember(userguildsinfodocument) ? "Member" : "Guest";
+
+                        ctx.Identity.AddClaims(new[]
+                        {
+                            new Claim("urn:discord:avatar", avatarhex),
+                            new Claim(ClaimTypes.Name, username),
+                            new Claim(ClaimTypes.Role, role)
+
+                        }); ;
                     }
                 };
             });
 
             return builder;
+        }
+
+        private async static Task<JsonDocument> GetInfoFromEndPoint(OAuthCreatingTicketContext ctx, string endpoint)
+        {
+            var request = new HttpRequestMessage(HttpMethod.Get, endpoint);
+            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", ctx.AccessToken);
+
+            var response = await ctx.Backchannel.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, ctx.HttpContext.RequestAborted);
+            response.EnsureSuccessStatusCode();
+
+            var document = await JsonDocument.ParseAsync(await response.Content.ReadAsStreamAsync());
+
+            return document;
+        }
+
+        private static bool IsCsInnMember(JsonDocument jsonDocument)
+        {
+            const string CsInnGuildID = "475671343463923714";
+
+            foreach (var arrayitem in jsonDocument.RootElement.EnumerateArray())
+            {
+                if (arrayitem.TryGetProperty("id", out var result) && result.ToString() == CsInnGuildID)
+                {
+                    return true;
+                }       
+            }
+
+            return false;
+
+        }
+
+        private static string GetValueOfProperty(JsonDocument json, string property)
+        {
+            return json.RootElement.GetProperty(property).GetString();
         }
     }
 }

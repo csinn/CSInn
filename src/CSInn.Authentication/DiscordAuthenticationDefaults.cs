@@ -13,5 +13,7 @@ namespace CSInn.Application.Discord.Authentication
         public static string TokenEndpoint { get; } = "https://discordapp.com/api/oauth2/token";
 
         public static string UserInformationEndpoint { get; } = "https://discordapp.com/api/users/@me";
+
+        public static string UserGuildsInformationEndPoint { get; } = "https://discordapp.com/api/users/@me/guilds";
     }
 }
