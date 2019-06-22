@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.AspNetCore.Authentication.OAuth.Claims;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Security.Claims;
@@ -39,6 +42,7 @@ namespace Microsoft.Extensions.DependencyInjection
 
                         var userinfodocument = await GetInfoFromEndPoint(ctx, DiscordAuthenticationDefaults.UserInformationEndpoint);
                         var userguildsinfodocument = await GetInfoFromEndPoint(ctx, DiscordAuthenticationDefaults.UserGuildsInformationEndPoint);
+                        
 
                         var avatarhex = GetValueOfProperty(userinfodocument, "avatar");
                         var username = GetValueOfProperty(userinfodocument, "username");
@@ -47,13 +51,12 @@ namespace Microsoft.Extensions.DependencyInjection
                         //Will later probably be a lookup in db to ascertain role
                         var role = IsCsInnMember(userguildsinfodocument) ? "Member" : "Guest";
 
-                        ctx.Identity.AddClaims(new[]
-                        {
-                            new Claim("urn:discord:avatar", avatarhex),
-                            new Claim(ClaimTypes.Name, username),
-                            new Claim(ClaimTypes.Role, role)
-
-                        }); ;
+                        ctx.Identity.AddClaims(BuildClaims(
+                            
+                            ("urn:discord:avatar", avatarhex),
+                            (ClaimTypes.Name, username),
+                            (ClaimTypes.Role, role)
+                            ));
                     }
                 };
             });
@@ -94,6 +97,21 @@ namespace Microsoft.Extensions.DependencyInjection
         private static string GetValueOfProperty(JsonDocument json, string property)
         {
             return json.RootElement.GetProperty(property).GetString();
+        }
+
+        private static IEnumerable<Claim> BuildClaims(params (string type, string value)[] claimvalues)
+        {
+            List<Claim> claims = new List<Claim>();
+
+            foreach (var (type, value) in claimvalues)
+            {
+                if (type != null && value != null)
+                {
+                    claims.Add(new Claim(type, value));
+                }
+            }
+
+            return claims;
         }
     }
 }
