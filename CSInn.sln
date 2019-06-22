@@ -12,6 +12,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSInn.Repository", "src\CSInn.Repository\CSInn.Repository.csproj", "{E9455387-EB74-408D-AF38-79A4E8D4FF47}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{186B0C3C-02E4-416C-9CD1-067E7662A53E}"
+	ProjectSection(SolutionItems) = preProject
+		MainCodeReviewPage.cs = MainCodeReviewPage.cs
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{399E33DB-3837-48F0-BFFA-B756D995BD2D}"
 EndProject

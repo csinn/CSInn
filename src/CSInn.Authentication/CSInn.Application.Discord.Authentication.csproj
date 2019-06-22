@@ -1,16 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard3.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="Code Review\CodeReviewSystem.csproj" />
-    <None Include="Code Review\CodeReviewSystem.csproj.user" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Code Review\bin\Debug\netstandard2.0\" />
+    <Compile Remove="Code Review\**" />
+    <EmbeddedResource Remove="Code Review\**" />
+    <None Remove="Code Review\**" />
   </ItemGroup>
 
 </Project>

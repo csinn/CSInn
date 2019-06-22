@@ -1,25 +1,28 @@
 ﻿@page  "/PostEdit"
 @using Microsoft.AspNetCore.Components
 @inject IUriHelper PageChange
+@using System.Globalization
+
 <title>Code Review</title>
-<head>
-    Post your Code Here For it to be reviewed!
-</head>
+<head>Post your Code Here For it to be reviewed!</head>
 
-// The id = PostContents is an experiment
-<p>
-    <label>Put your Code here</label>
-<textarea id=@PostContents rows="15" cols="90"> 
- </textarea>
-</p>
-<div class=""
-<button class=" btn btn-primary" onclick="@Submit">Post</button>
-
+ <div class="Editor"> 
+   <label>Title Here</label> 
+   <input type="text"id="Title Name" @bind ="@Title">
+   <label>Put your Code here</label>  
+   <textarea id= "YourCodeForReview" rows="15" cols="90" @bind ="@PostContents"> </textarea>
+   <button class=" btn btn-primary" onclick="@Submit">Post</button>
+ </div>
+      
  @functions {
-     String PostContents;
+     [Parameter]
+     public string PostContents;
+     [Parameter]
+     public string Title;
 
      private void Submit()
      {
-       PageChange.NavigateTo("CodePost");
+        // Trying out something else before uncommenting this
+        // PageChange.NavigateTo("CodePost");
      }
-}
+ }

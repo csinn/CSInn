@@ -4,11 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Collections;
 namespace CSInn.Presentation.Blazor
-{    public class CodePostClass
+{    public class CodePostClass:PostEdit
     {
-        public static void main(String[]args)
+        public static void main(String[] args)
         {
-            ArrayList Posts = new ArrayList();
+           
+           
         }
-    }
+      
+    } 
 }
