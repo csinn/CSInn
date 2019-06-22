@@ -1,19 +1,16 @@
-﻿using CSInn.Application.Discord.Authentication;
-using Microsoft.AspNetCore.Authentication;
+﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.OAuth;
-using Microsoft.AspNetCore.Authentication.OAuth.Claims;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
-using System;
+using Microsoft.Extensions.DependencyInjection;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Security.Claims;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace Microsoft.Extensions.DependencyInjection
+namespace CSInn.Application.Discord.Authentication
 {
     public static class OAuthExtensions
     {
@@ -38,21 +35,25 @@ namespace Microsoft.Extensions.DependencyInjection
 
                         //Instead of running claimactions and letting it build the claims automatically,
                         //we manually requests and parses the information we want and adds the claims manually.
-                        //reason is that we need to inject custom logic for setting roles.
+                        //reason is that we need to inject custom logic for setting roles/Fetching info from our db.
 
-                        var userinfodocument = await GetInfoFromEndPoint(ctx, DiscordAuthenticationDefaults.UserInformationEndpoint);
-                        var userguildsinfodocument = await GetInfoFromEndPoint(ctx, DiscordAuthenticationDefaults.UserGuildsInformationEndPoint);
-                        
+                        JsonDocument userinfodocument = await GetInfoFromEndPoint(ctx, DiscordAuthenticationDefaults.UserInformationEndpoint);
+                        JsonDocument userguildsinfodocument = await GetInfoFromEndPoint(ctx, DiscordAuthenticationDefaults.UserGuildsInformationEndPoint);
 
-                        var avatarhex = GetValueOfProperty(userinfodocument, "avatar");
-                        var username = GetValueOfProperty(userinfodocument, "username");
+                        var avatarhex = userinfodocument.RootElement.GetProperty("avatar").GetString();
+                        var username = userinfodocument.RootElement.GetProperty("username").GetString();
+                        var discordID = userinfodocument.RootElement.GetProperty("id").GetString();
 
-                        //Temporary simplistic role assignment based on membership.
-                        //Will later probably be a lookup in db to ascertain role
-                        var role = IsCsInnMember(userguildsinfodocument) ? "Member" : "Guest";
+                        //TODO:
+                        //Find a way to inverse control/Di
+                        IRoleProvider rp = new RoleProvider();
+
+                        bool ismember = rp.ConfirmCSInnMembership(userguildsinfodocument);
+
+                        var role = ismember ? rp.GetRole(discordID) : "Guest";
 
                         ctx.Identity.AddClaims(BuildClaims(
-                            
+
                             ("urn:discord:avatar", avatarhex),
                             (ClaimTypes.Name, username),
                             (ClaimTypes.Role, role)
@@ -76,27 +77,6 @@ namespace Microsoft.Extensions.DependencyInjection
             var document = await JsonDocument.ParseAsync(await response.Content.ReadAsStreamAsync());
 
             return document;
-        }
-
-        private static bool IsCsInnMember(JsonDocument jsonDocument)
-        {
-            const string CsInnGuildID = "475671343463923714";
-
-            foreach (var arrayitem in jsonDocument.RootElement.EnumerateArray())
-            {
-                if (arrayitem.TryGetProperty("id", out var result) && result.ToString() == CsInnGuildID)
-                {
-                    return true;
-                }       
-            }
-
-            return false;
-
-        }
-
-        private static string GetValueOfProperty(JsonDocument json, string property)
-        {
-            return json.RootElement.GetProperty(property).GetString();
         }
 
         private static IEnumerable<Claim> BuildClaims(params (string type, string value)[] claimvalues)

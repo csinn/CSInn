@@ -7,8 +7,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Extensions.Configuration;
 using CSInn.Application.Discord.Authentication;
-using Microsoft.AspNetCore.Components;
-using CSInn.Presentation.Blazor.Data;
 
 namespace CSInn.Presentation.Blazor
 {
