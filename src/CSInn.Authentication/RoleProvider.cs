@@ -1,6 +1,4 @@
-﻿using System.Text.Json;
-
-namespace CSInn.Application.Discord.Authentication
+﻿namespace CSInn.Application.Discord.Authentication
 {
     public class RoleProvider : IRoleProvider
     {

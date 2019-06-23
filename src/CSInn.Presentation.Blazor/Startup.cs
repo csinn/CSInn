@@ -24,6 +24,8 @@ namespace CSInn.Presentation.Blazor
             services.AddRazorPages();
             services.AddServerSideBlazor();
 
+            services.AddScoped<IRoleProvider, RoleProvider>();
+
             services.AddAuthentication(options =>
             {
                 options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -45,9 +47,11 @@ namespace CSInn.Presentation.Blazor
                 options.SlidingExpiration = true;
             })
             .AddDiscord(this._config);
-            
+
             //Uncomment to use a fake idenitity that is authorized from the start.
             //services.AddScoped<AuthenticationStateProvider, FakeAuthenticationStateProvider>();
+
+            var b = services.Contains(new ServiceDescriptor(typeof(IRoleProvider), typeof(RoleProvider), ServiceLifetime.Scoped));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
