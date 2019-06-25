@@ -12,7 +12,8 @@ C#, object orienated programming and more. We also provide certain features such
 
 And much more!
 
-# [How to get started?](https://github.com/csinn/CSInn/wiki/How-to-get-started-working-on-the-project%3F)
+# How to get started?
+[Link to how to get started](https://github.com/csinn/CSInn/wiki/How-to-get-started-working-on-the-project%3F)
 
 For full requirements refer to [specification](https://docs.google.com/document/d/1USzxRzPjm1Gs2aI3mVR4uFf0GjdWn55gD-u3ezwEjdI/edit#heading=h.bko0h4vmadol) for the project:
 
