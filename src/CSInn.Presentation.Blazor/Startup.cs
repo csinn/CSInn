@@ -29,7 +29,7 @@ namespace CSInn.Presentation.Blazor
             services.AddAuthentication(options =>
             {
                 options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = DiscordAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = Defaults.AuthenticationScheme;
             })
             .AddCookie(options =>
             {

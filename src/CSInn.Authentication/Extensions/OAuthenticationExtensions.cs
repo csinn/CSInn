@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -16,53 +17,52 @@ namespace CSInn.Application.Discord.Authentication
     {
         public static AuthenticationBuilder AddDiscord(this AuthenticationBuilder builder, IConfiguration config)
         {
-
-            builder.AddOAuth(DiscordAuthenticationDefaults.AuthenticationScheme, options =>
-            {
-
-                options.ClientId = config["discord:client_id"];
-                options.ClientSecret = config["discord:app_secret"];
-                options.CallbackPath = new PathString("/signin-discord");
-
-                options.AuthorizationEndpoint = DiscordAuthenticationDefaults.AuthorizationEndpoint;
-                options.TokenEndpoint = DiscordAuthenticationDefaults.TokenEndpoint;
-
-                options.Scope.Add("identify");
-                options.Scope.Add("guilds");
-
-                options.Events = new OAuthEvents()
-                {
-                    
-                    OnCreatingTicket = async ctx =>
-                    {
-                        //Instead of running claimactions and letting it build the claims automatically,
-                        //we manually requests and parses the information we want and build the claims manually.
-                        //reason is that we need to inject custom logic for setting roles/Fetching info from our db.
-                        
-                        JsonDocument userinfodocument = await GetInfoFromEndPoint(ctx, DiscordAuthenticationDefaults.UserInformationEndpoint);
-                        JsonDocument userguildsinfodocument = await GetInfoFromEndPoint(ctx, DiscordAuthenticationDefaults.UserGuildsInformationEndPoint);
-
-                        var avatarhex = userinfodocument.RootElement.GetProperty("avatar").GetString();
-                        var username = userinfodocument.RootElement.GetProperty("username").GetString();
-                        var discordID = userinfodocument.RootElement.GetProperty("id").GetString();
-                        
-                        IRoleProvider roleprovider = builder.Services.BuildServiceProvider().GetService<IRoleProvider>();
-
-                        bool ismember = roleprovider.ConfirmCSInnMembership(userguildsinfodocument);
-
-                        var role = ismember ? roleprovider.GetRole(discordID) : "Guest";
-
-                        ctx.Identity.AddClaims(BuildClaims(
-
-                            ("urn:discord:avatar", avatarhex),
-                            (ClaimTypes.Name, username),
-                            (ClaimTypes.Role, role)
-                            ));
-                    }
-                };
-            });
-
+            builder.AddOAuth(Defaults.AuthenticationScheme, options => ConfigureOptions(builder, options, config));
             return builder;
+        }
+
+        private static void ConfigureOptions(AuthenticationBuilder builder, OAuthOptions options, IConfiguration config)
+        {
+            options.ClientId = config["discord:client_id"];
+            options.ClientSecret = config["discord:app_secret"];
+            options.CallbackPath = new PathString("/signin-discord");
+
+            options.AuthorizationEndpoint = Defaults.AuthorizationEndpoint;
+            options.TokenEndpoint = Defaults.TokenEndpoint;
+
+            options.Scope.Add("identify");
+            options.Scope.Add("guilds");
+
+            options.Events = new OAuthEvents()
+            {
+                OnCreatingTicket = ctx => CreateTickedHandler(builder, ctx)
+            };
+        }
+
+        private async static Task CreateTickedHandler(AuthenticationBuilder builder, OAuthCreatingTicketContext ctx)
+        {
+            //Instead of running claimactions and letting it build the claims automatically,
+            //we manually request and parse the information we want and build the claims manually.
+            //reason is that we need to inject custom logic for setting roles/Fetching info from our db.
+
+            JsonDocument userInfoDocument = await GetInfoFromEndPoint(ctx, Defaults.UserInformationEndpoint);
+            JsonDocument userGuildsInfoDocument = await GetInfoFromEndPoint(ctx, Defaults.UserGuildsInformationEndPoint);
+
+            var avatarHex = userInfoDocument.RootElement.GetProperty("avatar").GetString();
+            var username = userInfoDocument.RootElement.GetProperty("username").GetString();
+            var discordID = userInfoDocument.RootElement.GetProperty("id").GetString();
+
+            IRoleProvider roleProvider = builder.Services.BuildServiceProvider().GetService<IRoleProvider>();
+
+            bool isMember = roleProvider.ConfirmCSInnMembership(userGuildsInfoDocument);
+
+            var role = isMember ? roleProvider.GetRole(discordID) : "Guest";
+
+            ctx.Identity.AddClaims(BuildClaims(
+                ("urn:discord:avatar", avatarHex),
+                (ClaimTypes.Name, username),
+                (ClaimTypes.Role, role)
+                ));
         }
 
         private async static Task<JsonDocument> GetInfoFromEndPoint(OAuthCreatingTicketContext ctx, string endpoint)

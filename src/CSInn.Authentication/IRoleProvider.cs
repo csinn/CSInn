@@ -17,7 +17,6 @@ namespace CSInn.Application.Discord.Authentication
             }
 
             return false;
-
         }
 
         string GetRole(string identifier);

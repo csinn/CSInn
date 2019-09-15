@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CSInn.Application.Discord.Authentication
 {
-    public static class DiscordAuthenticationDefaults
+    public static class Defaults
     {
         public static string AuthenticationScheme { get; } = "Discord";
 
