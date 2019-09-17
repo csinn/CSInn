@@ -18,8 +18,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\CSInn.Presentation.Blazor\CSInn.Presentation.Blazor.csproj" />
-  </ItemGroup>
-
 </Project>
