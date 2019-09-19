@@ -1,0 +1,49 @@
+﻿@inherits Microsoft.AspNetCore.Components.LayoutComponentBase
+
+<header>
+    <div class="navbar navbar-expand-sm border-bottom mb-3 d-sm-inline-flex ">
+        <ul class="navbar-nav flex-grow-1">
+            <li class="nav-item">
+                <a class="nav-link" href="/">
+                    start
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/Experiment/Index">
+                    experiment
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Login">
+                    login
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/FetchData">
+                    FetchData
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Error">
+                    Error
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Counter">
+                    Counter
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</header>
+
+
+<div class="container">
+    <main role="main" class="pb-3 main">
+        @Body
+    </main>
+</div>
+

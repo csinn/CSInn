@@ -1,0 +1,18 @@
+﻿@page "/Login"
+
+@using System.Security.Claims;
+
+<div>
+    <AuthorizeView>
+        <Authorized>
+            <p>
+                @*Logged in as: @context.User.Identity.Name   <br />
+                Role: @context.User.FindFirstValue(ClaimTypes.Role*@)
+            </p>
+            <button class="btn btn-primary" onclick="window.location.href='/auth/logout'">Log out from Discord</button>
+        </Authorized>
+        <NotAuthorized>
+            <button class="btn btn-primary" onclick="window.location.href='/auth/login'">Log in with Discord</button>
+        </NotAuthorized>
+    </AuthorizeView>
+</div>
