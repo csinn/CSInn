@@ -1,0 +1,73 @@
+.mainpage-btn-div {
+    background-color: blueviolet;
+    background-clip: inherit;
+    text-align: center;
+}
+
+.divider {
+    width: 250px;
+    height: auto;
+    display: inline-block;
+}
+
+/*
+    C# Logo
+*/
+
+.mainpage-cslogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    padding-top: 80px;
+    max-width: 500px;
+    max-height: 500px;
+}
+
+/*
+    Buttons
+*/
+
+.mainpage-btn {
+    padding: 2px;
+    font-family: 'Manjari', sans-serif;
+    font-size: 16px;
+    color: blanchedalmond;
+    height: 25px;
+    border: none;
+    display: inline-block;
+    background-color: blueviolet;
+}
+
+/*
+    Text
+*/
+
+.mainpage-title-h {
+    margin-top: 25px;
+    margin-left: 205px;
+    font-family: 'Roboto', sans-serif;
+    text-align: justify;
+}
+
+.mainpage-title-p {
+    text-align: justify;
+    margin-left: 225px;
+    font-size: 22px;
+    font-family: '-apple-system', sans-serif;
+    margin-right: 225px;
+}
+
+.mainpage-goal-h {
+    margin-top: 25px;
+    margin-left: 205px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.mainpage-goal-p {
+    text-align: justify;
+    margin-left: 225px;
+    font-size: 22px;
+    font-family: '-apple-system', sans-serif;
+    margin-right: 225px;
+}
