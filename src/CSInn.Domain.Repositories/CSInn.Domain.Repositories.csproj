@@ -2,10 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>CSInn.Domain.Repositories</AssemblyName>
+    <RootNamespace>CSInn.Domain.Repositories</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CSInn.Domain.Core\CSInn.Domain.Models.Content.csproj" />
+    <ProjectReference Include="..\CSInn.Models.Content\CSInn.Models.csproj" />
   </ItemGroup>
 
 </Project>
