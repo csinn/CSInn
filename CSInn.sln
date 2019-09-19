@@ -1,15 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.757
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{186B0C3C-02E4-416C-9CD1-067E7662A53E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{399E33DB-3837-48F0-BFFA-B756D995BD2D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSInn.UI", "src\CSInn.UI\CSInn.UI.csproj", "{B6E0D216-88C8-4BA1-A71C-7C6BDB4247BB}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSInn.Models", "src\CSInn.Models.Content\CSInn.Models.csproj", "{572EDCF6-0EFA-4FDB-8532-BDAEEBE11746}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSInn.Discord.Authentication", "src\CSInn.Discord.Authentication\CSInn.Discord.Authentication.csproj", "{4BA8C0D8-A2CA-4E84-B018-644C2859F5A5}"
 EndProject
@@ -25,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSInn.Discord.Authenticatio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSInn.UI.Tests", "tests\CSInn.UI.Tests\CSInn.UI.Tests.csproj", "{2159A971-3858-48F0-99B4-6F40C4F50863}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSInn.Infrastructure.Repositories.Tests", "tests\CSInn.Infrastructure.Repositories.Tests\CSInn.Infrastructure.Repositories.Tests.csproj", "{1B2CDA69-B45A-4F95-B5C9-7AC3F834A7B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSInn.Infrastructure.Repositories.Tests", "tests\CSInn.Infrastructure.Repositories.Tests\CSInn.Infrastructure.Repositories.Tests.csproj", "{1B2CDA69-B45A-4F95-B5C9-7AC3F834A7B7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSInn.Models", "src\CSInn.Models\CSInn.Models.csproj", "{A4D369D6-4937-4BB4-8F90-89DBCADE1481}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,10 +37,6 @@ Global
 		{B6E0D216-88C8-4BA1-A71C-7C6BDB4247BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6E0D216-88C8-4BA1-A71C-7C6BDB4247BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6E0D216-88C8-4BA1-A71C-7C6BDB4247BB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{572EDCF6-0EFA-4FDB-8532-BDAEEBE11746}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{572EDCF6-0EFA-4FDB-8532-BDAEEBE11746}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{572EDCF6-0EFA-4FDB-8532-BDAEEBE11746}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{572EDCF6-0EFA-4FDB-8532-BDAEEBE11746}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4BA8C0D8-A2CA-4E84-B018-644C2859F5A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4BA8C0D8-A2CA-4E84-B018-644C2859F5A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4BA8C0D8-A2CA-4E84-B018-644C2859F5A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -73,13 +69,16 @@ Global
 		{1B2CDA69-B45A-4F95-B5C9-7AC3F834A7B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B2CDA69-B45A-4F95-B5C9-7AC3F834A7B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B2CDA69-B45A-4F95-B5C9-7AC3F834A7B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4D369D6-4937-4BB4-8F90-89DBCADE1481}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4D369D6-4937-4BB4-8F90-89DBCADE1481}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4D369D6-4937-4BB4-8F90-89DBCADE1481}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4D369D6-4937-4BB4-8F90-89DBCADE1481}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B6E0D216-88C8-4BA1-A71C-7C6BDB4247BB} = {186B0C3C-02E4-416C-9CD1-067E7662A53E}
-		{572EDCF6-0EFA-4FDB-8532-BDAEEBE11746} = {186B0C3C-02E4-416C-9CD1-067E7662A53E}
 		{4BA8C0D8-A2CA-4E84-B018-644C2859F5A5} = {186B0C3C-02E4-416C-9CD1-067E7662A53E}
 		{B92834CE-81D2-4E82-86CA-4940CFB8A102} = {399E33DB-3837-48F0-BFFA-B756D995BD2D}
 		{C0BCA68B-7CD7-4037-8DEF-3C1DFA0FFA64} = {186B0C3C-02E4-416C-9CD1-067E7662A53E}
@@ -88,6 +87,7 @@ Global
 		{989E16D6-A255-4AC5-BAE1-3D78B38EE258} = {399E33DB-3837-48F0-BFFA-B756D995BD2D}
 		{2159A971-3858-48F0-99B4-6F40C4F50863} = {399E33DB-3837-48F0-BFFA-B756D995BD2D}
 		{1B2CDA69-B45A-4F95-B5C9-7AC3F834A7B7} = {399E33DB-3837-48F0-BFFA-B756D995BD2D}
+		{A4D369D6-4937-4BB4-8F90-89DBCADE1481} = {186B0C3C-02E4-416C-9CD1-067E7662A53E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6BBE2057-901B-474F-9140-0D045DF18046}
