@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
-using CSInn.Experimental.Data;
+using CSInn.Experimental.EF.Data;
 
 namespace CSInn.Experimental
 {

@@ -1,14 +1,11 @@
-﻿using CSInn.Models;
-using CSInn.UI.Models;
+﻿using System;
+using System.Linq;
+using CSInn.Experimental.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace CSInn.UI.Data
+namespace CSInn.Experimental.EF.Data
 {
     public static class CreateDB
     {
@@ -38,16 +35,16 @@ namespace CSInn.UI.Data
             context.Database.Migrate();
 
             // has data? no need to init
-            if (context.ExperimentModel.Any())
+            if (context.ExperimentEntities.Any())
                 return;
 
-            var entries = new ExperimentModel[]
+            var entries = new ExperimentEntity[]
             {
-                new ExperimentModel { Title = "Test title 1" },
-                new ExperimentModel { Title = "Test title 2" }
+                new ExperimentEntity { Title = "Test title 1" },
+                new ExperimentEntity { Title = "Test title 2" }
             };
 
-            SaveEntries(entries, context, (c) => c.ExperimentModel);
+            SaveEntries(entries, context, (c) => c.ExperimentEntities);
         }
 
         public static void SaveEntries<T, T2>(T[] entries, T2 context, Func<T2, DbSet<T>>GetModel) where T : class where T2 : DbContext
@@ -59,10 +56,5 @@ namespace CSInn.UI.Data
             }
             context.SaveChanges();
         }
-    }
-
-    public class ExperimentModel
-    {
-        public string Title { get; internal set; }
     }
 }

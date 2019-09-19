@@ -19,11 +19,11 @@ namespace CSInn.UI.Pages.Experiment
             _context = context;
         }
 
-        public IList<ExperimentModel> ExperimentModel { get;set; }
+        //public IList<ExperimentModel> ExperimentModel { get;set; }
 
         public async Task OnGetAsync()
         {
-            ExperimentModel = await _context.ExperimentModel.ToListAsync();
+            //ExperimentModel = await _context.ExperimentModel.ToListAsync();
         }
     }
 }
