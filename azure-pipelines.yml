@@ -19,7 +19,7 @@ steps:
   displayName: 'Use .NET Core sdk'
   inputs:
     packageType: sdk
-    version: 3.0.0
+    version: 3.x
     installationPath: $(Agent.ToolsDirectory)/dotnet
     
 - task: NuGetToolInstaller@1
@@ -28,11 +28,10 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
-- task: VSBuild@1
+- task: MSBuild@1
   inputs:
     solution: '$(solution)'
-    vsVersion: '16.0'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
+    msbuildVersion: 'latest'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
