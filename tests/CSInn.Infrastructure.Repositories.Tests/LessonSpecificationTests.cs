@@ -1,23 +1,19 @@
-﻿using System;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using CSInn.Domain.Repositories.Extensions;
-using CSInn.Domain.Repositories.Repositories;
 using CSInn.Domain.Repositories.Specifications.Lesson;
-using CSInn.Infrastructure.Repositories.Entities;
+using CSInn.Domain.Repositories.UnitOfWork;
 using CSInn.Infrastructure.Repositories.Tests.Input;
 using Xunit;
 
 namespace CSInn.Infrastructure.Repositories.Tests
 {
-    public class LessonSpecificationTests : IClassFixture<LessonsRepositoryFixture>
+    public class LessonSpecificationTests : IClassFixture<UoWFixture>
     {
-        private readonly ILessonsRepository _repository;
+        private readonly ICSInnUnitOfWork _uow;
 
-        public LessonSpecificationTests(LessonsRepositoryFixture fixture)
+        public LessonSpecificationTests(UoWFixture fixture)
         {
-            _repository = fixture.Repo;
+            _uow = fixture.UoW;
         }
 
         [Fact]
@@ -26,7 +22,7 @@ namespace CSInn.Infrastructure.Repositories.Tests
             var filter = new TitleLike("Lesson 2")
                 .Or(new TitleLike("Lesson 1")).Not();
 
-            var result = _repository.Get(filter);
+            var result = _uow.Lessons.Get(filter);
 
             Assert.Single(result);
         }
@@ -37,7 +33,7 @@ namespace CSInn.Infrastructure.Repositories.Tests
             var filter = new TitleLike("Lesson 2")
                 .Or(new TitleLike("Lesson 1")).Not();
 
-            var result = await _repository.GetAsync(filter);
+            var result = await _uow.Lessons.GetAsync(filter);
 
             Assert.Single(result);
         }

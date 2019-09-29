@@ -37,9 +37,7 @@ namespace CSInn.Infrastructure.Repositories.UoW
 
         public void Save() => _context.SaveChanges();
 
-
         public Task SaveAsync(CancellationToken token = default) =>_context.SaveChangesAsync();
-
 
         #region IDisposable pattern
         private bool disposed;

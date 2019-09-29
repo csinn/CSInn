@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\CSInn.Domain.Repositories\CSInn.Domain.Repositories.csproj" />
     <ProjectReference Include="..\..\src\CSInn.Infrastructure.Repositories\CSInn.Infrastructure.Repositories.csproj" />
   </ItemGroup>
 

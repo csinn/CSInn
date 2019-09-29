@@ -1,38 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using CSInn.Infrastructure.Repositories.Context;
-using CSInn.Infrastructure.Repositories.Extensions;
-using CSInn.Infrastructure.Repositories.Repositories.CSInn.Experimental.EF.Repositories;
+using CSInn.Infrastructure.Repositories.UoW;
 using CSInn.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace CSInn.Infrastructure.Repositories.Tests.Input
 {
-    public class LessonsRepositoryFixture
+    public class UoWFixture
     {
-        public LessonsRepository Repo { get; set; }
-        public LessonsRepositoryFixture()
+        public CSInnUnitOfWork UoW { get; set; }
+        public UoWFixture()
         {
             var options = new DbContextOptionsBuilder<CSInnDbContext>()
                 .UseInMemoryDatabase(databaseName: "database_name")
                 .Options;
 
             var context = new CSInnDbContext(options);
+            UoW = new CSInnUnitOfWork(context);
 
-            context.Lessons.Add(
-                new Lesson("Lesson 1: Class", "What is a class, object", new List<string>() { "OOP" },
-                    new List<string>() { "Almantas Karpavičius" }).ToEntity());
+            UoW.Lessons.Create(new Lesson("Lesson 2: SOLID", "SOLID", new List<string>() { "OOP" },
+                new List<string>() { "Kaisinel" }));
 
-            context.Lessons.Add(new Lesson("Lesson 2: SOLID", "SOLID", new List<string>() { "OOP" },
-                new List<string>() { "Kaisinel" }).ToEntity());
-
-            context.Lessons.Add(
+            UoW.Lessons.Create(
                 new Lesson("Lesson 3: Delegates", "Delegate vs callback", new List<string>() { "FP" },
-                    new List<string>() { "Lethern" }).ToEntity());
-            context.SaveChanges();
+                    new List<string>() { "Lethern" }));
 
-            Repo = new LessonsRepository(context);
+            UoW.Save();
         }
     }
 }
