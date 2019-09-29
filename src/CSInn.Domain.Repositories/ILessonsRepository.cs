@@ -1,6 +1,6 @@
-﻿using CSInn.Domain.Models.Content;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using CSInn.Models;
 
 namespace CSInn.Domain.Repositories
 {
