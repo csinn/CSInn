@@ -8,7 +8,7 @@ using CSInn.Models;
 
 namespace CSInn.Infrastructure.Repositories.Expressions
 {
-    class LessonEntityExpressionVisitor : ExpressionVisitor<LessonEntity, ILessonSpecificationVisitor, Lesson>, ILessonSpecificationVisitor
+    internal class LessonEntityExpressionVisitor : ExpressionVisitor<LessonEntity, ILessonSpecificationVisitor, Lesson>, ILessonSpecificationVisitor
     {
         public override Expression<Func<LessonEntity, bool>> ConvertSpecToExpression(ISpecification<Lesson, ILessonSpecificationVisitor> spec)
         {

@@ -70,7 +70,8 @@ namespace CSInn.Infrastructure.Repositories.Repositories
                 specification.Accept(visitor);
                 var expression = visitor.Expression;
 
-                return dbSet.Where(expression.Compile()).AsEnumerable().ToModels();
+                var smth = expression.Compile();
+                return dbSet.Where(smth).AsEnumerable().ToModels();
             }
         }
     }

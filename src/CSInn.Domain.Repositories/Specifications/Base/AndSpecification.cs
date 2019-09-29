@@ -12,8 +12,8 @@ namespace CSInn.Domain.Repositories.Specifications.Base
 
         public AndSpecification(ISpecification<T, TVisitor> left, ISpecification<T, TVisitor> right)
         {
-            this.Left = left;
-            this.Right = right;
+            Left = left;
+            Right = right;
         }
 
         public void Accept(TVisitor visitor) => visitor.Visit(this);

@@ -1,12 +1,16 @@
-﻿using CSInn.Domain.Repositories.Extensions;
+﻿using System;
+using System.Linq;
+using System.Linq.Expressions;
+using CSInn.Domain.Repositories.Extensions;
 using CSInn.Domain.Repositories.Repositories;
 using CSInn.Domain.Repositories.Specifications.Lesson;
+using CSInn.Infrastructure.Repositories.Entities;
 using CSInn.Infrastructure.Repositories.Tests.Input;
 using Xunit;
 
 namespace CSInn.Infrastructure.Repositories.Tests
 {
-    public class LessonSpecificationTests: IClassFixture<LessonsRepositoryFixture>
+    public class LessonSpecificationTests : IClassFixture<LessonsRepositoryFixture>
     {
         private readonly ILessonsRepository _repository;
 
@@ -18,9 +22,11 @@ namespace CSInn.Infrastructure.Repositories.Tests
         [Fact]
         public void Composite_Specification_Ok()
         {
-            var filter = new TitleLike("Lesson 2");
+            var filter = new TitleLike("Lesson 2")
+                .Or(new TitleLike("Lesson 1")).Not();
 
             var result = _repository.Get(filter);
+
             Assert.Single(result);
         }
     }
