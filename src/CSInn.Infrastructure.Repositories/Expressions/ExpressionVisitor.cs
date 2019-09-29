@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Linq;
 using System.Linq.Expressions;
-using CSInn.Domain.Repositories.Extensions;
 using CSInn.Domain.Repositories.Specifications.Base;
 
 // TODO: References should be internals visible to this one.
 namespace CSInn.Infrastructure.Repositories.Expressions
 {
-    internal abstract class ExpressionVisitor<TEntity, TVisitor, TItem>
+    public abstract class ExpressionVisitor<TEntity, TVisitor, TItem>
                             where TVisitor : ISpecificationVisitor<TVisitor, TItem>
     {
         public Expression<Func<TEntity, bool>> Expression { get; protected set; }

@@ -2,7 +2,6 @@
 using System.Linq;
 using CSInn.Infrastructure.Repositories.Entities;
 using CSInn.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace CSInn.Infrastructure.Repositories.Extensions
 {

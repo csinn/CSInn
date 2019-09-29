@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Linq.Expressions;
 using CSInn.Domain.Repositories.Specifications.Base;
 using CSInn.Domain.Repositories.Specifications.Lesson;
@@ -8,7 +7,7 @@ using CSInn.Models;
 
 namespace CSInn.Infrastructure.Repositories.Expressions
 {
-    internal class LessonEntityExpressionVisitor : ExpressionVisitor<LessonEntity, ILessonSpecificationVisitor, Lesson>, ILessonSpecificationVisitor
+    public class LessonEntityExpressionVisitor : ExpressionVisitor<LessonEntity, ILessonSpecificationVisitor, Lesson>, ILessonSpecificationVisitor
     {
         public override Expression<Func<LessonEntity, bool>> ConvertSpecToExpression(ISpecification<Lesson, ILessonSpecificationVisitor> spec)
         {

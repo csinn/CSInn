@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq.Expressions;
-using System.Runtime.CompilerServices;
 using CSInn.Domain.Repositories.ExpressionVisitors;
 
 namespace CSInn.Infrastructure.Repositories.Expressions

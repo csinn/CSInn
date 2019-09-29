@@ -1,8 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using CSInn.Domain.Repositories.Extensions;
 using CSInn.Domain.Repositories.Specifications.Lesson;
 using CSInn.Domain.Repositories.UnitOfWork;
 using CSInn.Infrastructure.Repositories.Tests.Input;
+using CSInn.Models;
 using Xunit;
 
 namespace CSInn.Infrastructure.Repositories.Tests
@@ -23,7 +25,7 @@ namespace CSInn.Infrastructure.Repositories.Tests
                 .Or(new TitleLike("Lesson 1")).Not();
 
             var result = _uow.Lessons.Get(filter);
-
+            
             Assert.Single(result);
         }
 

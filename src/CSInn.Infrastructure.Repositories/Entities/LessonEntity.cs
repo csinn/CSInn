@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace CSInn.Infrastructure.Repositories.Entities
+﻿namespace CSInn.Infrastructure.Repositories.Entities
 {
     public class LessonEntity
     {
