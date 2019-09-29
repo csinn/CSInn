@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 using CSInn.Domain.Repositories.Extensions;
 using CSInn.Domain.Repositories.Repositories;
 using CSInn.Domain.Repositories.Specifications.Lesson;
@@ -26,6 +27,17 @@ namespace CSInn.Infrastructure.Repositories.Tests
                 .Or(new TitleLike("Lesson 1")).Not();
 
             var result = _repository.Get(filter);
+
+            Assert.Single(result);
+        }
+
+        [Fact]
+        public async Task Composite_Specification_Async_Ok()
+        {
+            var filter = new TitleLike("Lesson 2")
+                .Or(new TitleLike("Lesson 1")).Not();
+
+            var result = await _repository.GetAsync(filter);
 
             Assert.Single(result);
         }

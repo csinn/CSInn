@@ -3,7 +3,8 @@ using CSInn.Models;
 
 namespace CSInn.Domain.Repositories.Repositories
 {
-    public interface ILessonsRepository : IRepository<Lesson, ILessonSpecificationVisitor>
+    public interface ILessonsRepository : IRepository<Lesson, ILessonSpecificationVisitor>,
+        IRepositoryAsync<Lesson, ILessonSpecificationVisitor>
     {
         //// TODO: Specification pattern so we can mix criterias.
         //IEnumerable<Lesson> GetByTags(params string[] tags);

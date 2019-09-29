@@ -1,7 +1,7 @@
 ﻿using CSInn.Infrastructure.Repositories.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace CSInn.Infrastructure.Repositories
+namespace CSInn.Infrastructure.Repositories.Context
 {
     public class CSInnDbContext : DbContext
     {
