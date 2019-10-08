@@ -19,7 +19,7 @@ And much more!
 
 For full requirements refer to [specification](https://docs.google.com/document/d/1USzxRzPjm1Gs2aI3mVR4uFf0GjdWn55gD-u3ezwEjdI/edit#heading=h.bko0h4vmadol) for the project:
 
-For questions regarding project information, it'd be highly recommended to contact Kaisnel or any high ranking project member within the C# Inn [discord](https://discordapp.com/invite/ZU6dqXg).
+For questions regarding project information, it'd be highly recommended to contact Kaisnel or any high ranking project member within the C# Inn [discord](https://discord.gg/rCMKcUU).
 
 ---
 This project is licensed under the MIT license. See the [license file](LICENSE) for more information.
