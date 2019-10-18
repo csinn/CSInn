@@ -16,6 +16,8 @@ namespace CSInn.Models
         public IList<string> Tags { get; set; }
         public IList<string> Authors { get; set; }
 
+        public string model_test { get; set; }
+
         public Lesson(string title, string description, IEnumerable<string> tags, IEnumerable<string> authors)
         {
             Title = title;
@@ -34,6 +36,8 @@ namespace CSInn.Models
             }
 
         }
+
+        public Lesson() { }
     }
 
 }

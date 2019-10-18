@@ -27,6 +27,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSInn.Infrastructure.Reposi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSInn.Models", "src\CSInn.Models\CSInn.Models.csproj", "{A4D369D6-4937-4BB4-8F90-89DBCADE1481}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{EBBFB2B3-35F1-4B87-B9D1-7260A3825CDC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +75,10 @@ Global
 		{A4D369D6-4937-4BB4-8F90-89DBCADE1481}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4D369D6-4937-4BB4-8F90-89DBCADE1481}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4D369D6-4937-4BB4-8F90-89DBCADE1481}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBBFB2B3-35F1-4B87-B9D1-7260A3825CDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBBFB2B3-35F1-4B87-B9D1-7260A3825CDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBBFB2B3-35F1-4B87-B9D1-7260A3825CDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBBFB2B3-35F1-4B87-B9D1-7260A3825CDC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -88,6 +94,7 @@ Global
 		{2159A971-3858-48F0-99B4-6F40C4F50863} = {399E33DB-3837-48F0-BFFA-B756D995BD2D}
 		{1B2CDA69-B45A-4F95-B5C9-7AC3F834A7B7} = {399E33DB-3837-48F0-BFFA-B756D995BD2D}
 		{A4D369D6-4937-4BB4-8F90-89DBCADE1481} = {186B0C3C-02E4-416C-9CD1-067E7662A53E}
+		{EBBFB2B3-35F1-4B87-B9D1-7260A3825CDC} = {186B0C3C-02E4-416C-9CD1-067E7662A53E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6BBE2057-901B-474F-9140-0D045DF18046}

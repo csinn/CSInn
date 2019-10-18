@@ -13,7 +13,6 @@ namespace CSInn.Infrastructure.Repositories.Context
             : base(options)
         {
         }
-
         public virtual DbSet<LessonEntity> Lessons { get; set; }
     }
 }
