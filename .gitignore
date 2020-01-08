@@ -328,3 +328,7 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+/src/CSInn.UI/Pages/LessonSearch.cshtml.cs
+/src/CSInn.UI/Pages/LessonSearch.cshtml
+/src/CSInn.UI/Pages/LessonView.cshtml
+/src/CSInn.UI/Pages/LessonView.cshtml.cs
