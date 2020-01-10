@@ -1,4 +1,4 @@
-[![CINN](./ProjectSpecs_files/58613885-8dbf4e00-82bf-11e9-9f0c-6926bd2b660c.png)](https://github.com/csinn/CSInn) 
+![CINN Logo](https://github.com/csinn/CSInn/tree/master/Docs/Image Assets/CINNLogo.png) 
 
 <section style="float: left; width: 250px; height: 500px; background-color: antiquewhite">
 
@@ -41,9 +41,9 @@
 
 #### What won't be included:
 
-1.  Manage their discord account form our website- our website is not supposed to replace discord. Our goal is to supplement discord with this website.
+1.  **Manage their discord account form our website-** our website is not supposed to replace discord. Our goal is to supplement discord with this website.
 
-3.  Offer paid work- offering money for our services is against our way of thinking. Two 3rd parties can get in touch, however, we will not be responsible for the outcome and we will not support either of the two. We want to be accessible, we don’t seek for profit.
+3.  **Offer paid work-** offering money for our services is against our way of thinking. Two 3rd parties can get in touch, however, we will not be responsible for the outcome and we will not support either of the two. We want to be accessible, we don’t seek for profit.
 
 * * *
 
@@ -95,6 +95,6 @@
 
 #### What would be nice to be included:
 
-1.  Sync discord content with website- syncing content is a heavy task, which is risky to automate. Thus it should be done at will, rather than periodically. There would be a special page for managing content sync, with options to sync roles, channels, users.
+1.  **Sync discord content with website-** syncing content is a heavy task, which is risky to automate. Thus it should be done at will, rather than periodically. There would be a special page for managing content sync, with options to sync roles, channels, users.
 
 </article>
