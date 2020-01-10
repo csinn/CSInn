@@ -6,44 +6,39 @@
     <link rel="stylesheet" href="css/mainpage.css">
     <title>C# Inn</title>
 </head>
-<body class="mainpage">
-    <div class="mainpage-div">
-        <!--
-            Header buttons, i only have JS experience so there are IDs in place if necessary
-        -->
-        <div class="mainpage-btn-div">
-            <button id="home-btn" class="mainpage-btn">Home</button>
-            <div class="divider"></div> <!--Couldn't figure out how to space buttons out evenly any other way :\+-->
-            <button id="lessons-btn" class="mainpage-btn">Our lessons</button>
-            <div class="divider"></div>
-            <button id="coderev-btn" class="mainpage-btn">Code Reviews</button>
-            <div class="divider"></div>
-            <button id="projects-btn" class="mainpage-btn">Projects</button>
-            <div class="divider"></div>
-            <button id="events-btn" class="mainpage-btn">Events</button>
-        </div>
-        <!--
-            Header buttons end
-        -->
-        <!--
-            Main page content
-        -->
-        <div>
-            <h1 class="mainpage-title-h">Welcome to C# Inn!</h1>
-            <p class="mainpage-title-p">
-                C# inn- a friendly discord community would like to invite you to join! We’re a young and growing community with over 2500 members, with dozens of new members joining daily. Our members help each other out and we try to keep as friendly atmosphere as possible. Your opinion matters to us, our staff listens to your needs and suggestions, so we’re constantly changing and trying to be a bit better than we were yesterday, by adding/removing channels, coming up with ideas, planning the future. As the name implies, we're mostly focused on C#. We have a lot of people who advocate profesionalism and we want not only to help you do stuff, but do it the right way.
-            </p>
+<body>
+    <!--
+        Header buttons, i only have JS experience so there are IDs in place if necessary
+    -->
+    <!--
+        An update with what is going on in this razor page:
+            So appearently a button will render differently across browsers and browsers have
+            their own padding for buttons specifically. Something like an html actionlink may
+            have to be used to specifially center text instead.
+    -->
+    <nav class="NavSpace" style="text-align:center;">
+        <button id="home-btn">Home</button>
+        <button id="lessons-btn">Our lessons</button>
+        <button id="coderev-btn">Code Reviews</button>
+        <button id="projects-btn">Projects</button>
+        <button id="events-btn">Events</button>
+    </nav>
 
-            <h1 class="mainpage-goal-h">Our goal</h1>
-            <p class="mainpage-goal-p">
-                We want to spread our passion of programming and C# to more people. We don't want to see people being discouraged by being stuck, left alone. We're here for each and everyone who wants to learn. We're here for those who want to help. Our dream is to create a community, where everyone would have fun learning to program, collaborate, feel free to ask any question. A sanctum for all kinds of programmers is what we aim to become.
+    <article class="MainContent">
+        <!-- Main page content -->
+        <h1 class="mainpage-Header">Welcome to C# Inn!</h1>
+        <p class="mainpage-ContentBlock">
+            C# inn- a friendly discord community would like to invite you to join! We’re a young and growing community with over 2500 members, with dozens of new members joining daily. Our members help each other out and we try to keep as friendly atmosphere as possible. Your opinion matters to us, our staff listens to your needs and suggestions, so we’re constantly changing and trying to be a bit better than we were yesterday, by adding/removing channels, coming up with ideas, planning the future. As the name implies, we're mostly focused on C#. We have a lot of people who advocate profesionalism and we want not only to help you do stuff, but do it the right way.
+        </p>
 
-            </p>
-            <img class="mainpage-cslogo" src="res/csinnLogo.png" alt="C# Inn's logo">
-        </div>
-        <!--
-            Main page content end
-        -->
-    </div>
+        <h1 class="mainpage-Header">Our goal</h1>
+        <p class="mainpage-ContentBlock">
+            We want to spread our passion of programming and C# to more people. We don't want to see people being discouraged by being stuck, left alone. We're here for each and everyone who wants to learn. We're here for those who want to help. Our dream is to create a community, where everyone would have fun learning to program, collaborate, feel free to ask any question. A sanctum for all kinds of programmers is what we aim to become.
+
+        </p>
+        <img class="mainpage-cslogo" src="res/csinnLogo.png" alt="C# Inn's logo">
+
+        <!-- Main page content end -->
+    </article>
 </body>
 </html>

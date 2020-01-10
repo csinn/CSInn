@@ -1,13 +1,30 @@
+.MainContent {
+    width:800px;
+    margin-left:85px;
+    text-align:center;
+}
+
 .mainpage-btn-div {
     background-color: blueviolet;
     background-clip: inherit;
     text-align: center;
 }
 
-.divider {
-    width: 250px;
+.NavSpace {
+    text-align: center;
+    background-color: #4125da;
+}
+
+.NavSpace button {
     height: auto;
     display: inline-block;
+    margin-left: 50px;
+    margin-right: auto;
+    padding: 0, 40px, 0, 20px;
+    border: 0;
+    background-color: blueviolet;
+    background-clip:inherit;
+    text-align:center;
 }
 
 /*
@@ -43,31 +60,18 @@
     Text
 */
 
-.mainpage-title-h {
+.mainpage-Header {
     margin-top: 25px;
-    margin-left: 205px;
-    font-family: 'Roboto', sans-serif;
-    text-align: justify;
-}
-
-.mainpage-title-p {
-    text-align: justify;
-    margin-left: 225px;
-    font-size: 22px;
-    font-family: '-apple-system', sans-serif;
-    margin-right: 225px;
-}
-
-.mainpage-goal-h {
-    margin-top: 25px;
-    margin-left: 205px;
     font-family: 'Roboto', sans-serif;
 }
 
-.mainpage-goal-p {
-    text-align: justify;
-    margin-left: 225px;
+.mainpage-ContentBlock{
+    width:650px;
+    padding-left: 175px;
+    text-align:justify;
     font-size: 22px;
     font-family: '-apple-system', sans-serif;
     margin-right: 225px;
+    display:inline-block;
+    border-width:0;
 }

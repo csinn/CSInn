@@ -1,0 +1,111 @@
+Foot note entirely here for how the actual file layout
+will be for the entire solution. I will personally put what
+the general layout is and hopefully get a feedback of where
+things in general like databases will go to properly insert
+intended items for functionality.
+
+Things needed:
+	-Controller
+	-Database
+	-Database Context
+	-Possible additional file structures within the seperate projects???
+
+Possible Ways to see denote what we might want in this structure?
+
+[X] = Needs to be deleted
+[O] = Needs to be added
+[E] = Needs to be edited
+[T] = Needs to be tested
+
+(CSFILE) = C# Code File
+(JSON) = Java Script Notation File
+(CSHTML) = C# Html File. Mainly handles html, with some c# embedded
+(Razor)
+
+
+******* Solution Structure *******
+
+[1]Solution CSINN
+	(folder) Solution Items
+		(txt)Application Structure
+	------------------------
+	(folder) SRC
+		(project) CSInn.Application
+			-Dependencies
+				*Projects
+					-(project)CSInn.Domain.Repositories
+		**************************
+		(project) CSInn.Discord.Authentication
+			-Dependencies
+				*SDK
+		**************************
+		(Project) CSInn.Domain.Repositories
+			-Depndencies
+				*Projects
+					-(project)CSInn.Models
+				*SDK
+			(CSFILE) ILessonRepository
+			(CSFILE) IRepository
+		**************************
+		(Project) CSInn.Infrastructure.Rrepositories
+			-Dependencies
+				*Projects
+					-(Project) CSInn.Domain.Repositories
+				*SDK
+		**************************
+		(Project) CSInn.Models
+			-Dependencies
+				*SDK
+			(Folder) Exceptions
+				-(CSFILE) InvalidLessionException
+			(CSFile) Lesson
+		**************************
+		(Project) CSInn.UI
+			*Connected Services
+			*Dependencies
+				-Analyzers
+				-Frameworks
+			*Properties
+				-(JSON)LaunchSettings
+			*wwwroot(Just for bootstraps, css files for now)
+
+			(Folder) Data
+				-(CSFILE) WeatherForecast
+				-(CSFILE) WeatherForecastService
+
+			(Folder) Pages
+				-(CSHTML) _Host
+				-(Razor) Couter
+				-(Razor) Error
+				-(Razor) FetchData
+				-(Razor) Index
+				-(CSHTML) LessonSearch
+					*(CSFILE) LessonSearch.cshtml
+				-(CSHTML) LessonView
+					*(CSFILE) LessonView.cshtml
+
+			(Folder) Shared
+				-(Razor) Main Layout
+				-(Razor) NavMenu
+
+			(Razor) _Imports
+			(Razor) App
+			(JSON)  appsettings
+			(CSFILE) Program
+			(CSFILE) Startup
+		
+		[2](Folder) tests [These just seem to correspond in dependencies with respective projects]
+
+			(Test Solution) CSInn.Application.Tests
+
+			(Test Solution) CSInn.Discord.Authentication.Tests
+
+			(Test Solution) CSInn.Infrastructure.Repositories.Tests
+
+			(Test Solution) CSInn.UI.Tests
+				-ReadMe.Txt
+
+******* Bracket Notes *******
+[1]: Entire Solution structure for view. More or less for easier visual view?
+
+[2] Tests for the projects. As things are added more will have to be tested. 

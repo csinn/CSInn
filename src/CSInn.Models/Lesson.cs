@@ -1,4 +1,14 @@
-﻿using System;
+﻿/*
+ * should we allow users to upload attachments that they may think help users in theirendeavor for learning? 
+ * 
+ * Example: User uploads a database for another user to use, or uploads code snippets/examples for users
+ *          to play with or understand the code?
+ *          
+ */ 
+
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
