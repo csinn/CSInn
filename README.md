@@ -5,7 +5,7 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/58c28c51e66d4168a3b31f0104d6cafb)](https://www.codacy.com/app/Almantask/CSInn?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=csinn/CSInn&amp;utm_campaign=Badge_Grade)
 
 The C# community website is built to introduce people to the C# Inn as it's a community specialising in C# where you can learn more about
-C#, object orienated programming and more. We also provide certain features such as:
+C#, object oriented programming and more. We also provide certain features such as:
 - Projects
 - Lessons taught by experienced developers/engineers
 - Code reviews
