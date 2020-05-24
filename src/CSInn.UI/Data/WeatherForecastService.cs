@@ -1,3 +1,8 @@
+// -------------------------------------------------------------------------------------------------
+// C# Inn Website - © Copyright 2020 - C# Inn
+// Licensed under the MIT License (MIT). See LICENSE in the repo root for license information.
+// -------------------------------------------------------------------------------------------------
+
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,7 +13,7 @@ namespace CSInn.Data
     {
         private static readonly string[] Summaries = new[]
         {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching",
         };
 
         public Task<WeatherForecast[]> GetForecastAsync(DateTime startDate)
@@ -18,7 +23,7 @@ namespace CSInn.Data
             {
                 Date = startDate.AddDays(index),
                 TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
+                Summary = Summaries[rng.Next(Summaries.Length)],
             }).ToArray());
         }
     }
