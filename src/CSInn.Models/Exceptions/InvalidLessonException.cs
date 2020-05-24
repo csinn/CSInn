@@ -1,15 +1,18 @@
-﻿using System;
+﻿// -------------------------------------------------------------------------------------------------
+// C# Inn Website - © Copyright 2020 - C# Inn
+// Licensed under the MIT License (MIT). See LICENSE in the repo root for license information.
+// -------------------------------------------------------------------------------------------------
+
+using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace CSInn.Domain.Models.Content.Exceptions
 {
     public class InvalidLessonException : Exception
     {
-        public InvalidLessonException(bool isTitleEmpty, bool isDescriptionEmpty, bool areNoTags, bool areNoAuthors): 
-            base(BuildErrorMessage(isTitleEmpty, isDescriptionEmpty, areNoTags, areNoAuthors))
+        public InvalidLessonException(bool isTitleEmpty, bool isDescriptionEmpty, bool areNoTags, bool areNoAuthors)
+            : base(BuildErrorMessage(isTitleEmpty, isDescriptionEmpty, areNoTags, areNoAuthors))
         {
-
         }
 
         private static string BuildErrorMessage(bool isTitleEmpty, bool isDescriptionEmpty, bool areNoTags, bool areNoAuthors)
