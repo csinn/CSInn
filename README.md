@@ -1,4 +1,4 @@
-# CSInn
+# C programming 
 
 ![CSInn logo](https://user-images.githubusercontent.com/40486932/58613885-8dbf4e00-82bf-11e9-9f0c-6926bd2b660c.png)
 
